@@ -27,3 +27,8 @@
     </md-card>
   </div>
 </template>
+<script>
+  export default {
+    name: 'user-page',
+  }
+</script>
