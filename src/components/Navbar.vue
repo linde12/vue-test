@@ -5,24 +5,24 @@
         <md-icon>menu</md-icon>
       </md-button>
 
-      <h2 class="md-title">Vue</h2>
+      <h2 class="md-title">ahap</h2>
     </md-toolbar>
 
     <md-sidenav class="md-left" ref="nav" @open="open" @close="open">
       <md-toolbar class="md-large">
         <img src="../assets/logo.png" />
-        <h3 class="md-title">Vue</h3>
+        <h3 class="md-title">ahap</h3>
       </md-toolbar>
 
       <md-list>
         <md-list-item @click="toggleNav">
-          <router-link to="/home">
-            <md-icon>home</md-icon><span>Home</span>
+          <router-link to="/music">
+            <md-icon>library_music</md-icon><span>Library</span>
           </router-link>
         </md-list-item>
         <md-list-item @click="toggleNav">
-          <router-link to="/users">
-            <md-icon>people</md-icon><span>Users</span>
+          <router-link to="/music/favorites">
+            <md-icon>favorite</md-icon><span>Favorites</span>
           </router-link>
         </md-list-item>
         <md-list-item @click="toggleNav">
@@ -36,7 +36,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'nav-bar',
     methods: {
@@ -56,4 +55,4 @@
       }
     },
   };
-  </script>
+</script>

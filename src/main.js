@@ -2,10 +2,16 @@ import 'vue-material/dist/vue-material.css'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueMaterial from 'vue-material'
+import FastClick from 'fastclick'
+
 import App from './App'
 import Navbar from './components/Navbar'
 import Home from './containers/Home'
+import Music from './containers/Music'
 import Users from './containers/Users'
+
+/* eslint-disable no-undef */
+FastClick.attach(document.body)
 
 // Components
 Vue.component('nav-bar', Navbar)
@@ -25,6 +31,7 @@ const router = new VueRouter({
   routes: [
     {path: '/', redirect: '/home'},
     {path: '/home', component: Home},
+    {path: '/music', component: Music},
     {path: '/users', component: Users},
   ],
 })
