@@ -30,6 +30,10 @@ module.exports = {
     // allow no semis
     'semi': 0,
     'space-before-function-paren': 0,
-    'object-curly-spacing': 0
+    'object-curly-spacing': 0,
+    'no-plusplus': 0,
+    'spaced-comment': 0,
+    'no-unused-vars': 1,
+    'no-param-reassign': 0,
   }
 }

@@ -1,9 +1,15 @@
 import 'vue-material/dist/vue-material.css'
+// 3rd party
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import {sync} from 'vuex-router-sync'
 import VueMaterial from 'vue-material'
 import FastClick from 'fastclick'
 
+// store
+import createStore from './store'
+
+// components
 import App from './App'
 import Navbar from './components/Navbar'
 import Home from './containers/Home'
@@ -13,17 +19,16 @@ import Users from './containers/Users'
 /* eslint-disable no-undef */
 FastClick.attach(document.body)
 
-// Components
 Vue.component('nav-bar', Navbar)
 
-// VueMaterial
+// vue-material
 Vue.use(VueMaterial)
 Vue.material.theme.register('default', {
   primary: 'indigo',
   accent: 'pink',
 })
 
-// Router
+// router
 Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
@@ -36,9 +41,21 @@ const router = new VueRouter({
   ],
 })
 
+// state-management
+const store = createStore()
+sync(store, router)
+
 /* eslint-disable no-new */
+Vue.component('Something', {
+  template: '<div>hello</div>',
+  created () {
+    console.log(this.$store)
+  },
+})
+Vue.component('App', App)
 new Vue({
   router,
+  store,
   el: '#app',
   template: '<App/>',
   components: { App },

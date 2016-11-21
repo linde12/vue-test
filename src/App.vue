@@ -8,13 +8,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'app',
-    watch: {
-      $route (to, from) {
-        const depth = route => route.path.split('/').length
-        this.transitionName = depth(to) <= depth(from) ? 'slide-right' : 'slide-left'
-      },
+export default {
+  name: 'app',
+  watch: {
+    $route (to, from) {
+      console.log(this.$store)
+      const depth = route => route.path.split('/').length
+      this.transitionName = depth(to) <= depth(from) ? 'slide-right' : 'slide-left'
     },
     data () {
       return {
@@ -23,26 +23,4 @@
     },
   }
 </script>
-
-<style>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ease;
-}
-.fade-enter, .fade-leave-active {
-  opacity: 0
-}
-.child-view {
-  position: absolute;
-  transition: all .5s cubic-bezier(.55,0,.1,1);
-}
-.slide-left-enter, .slide-right-leave-active {
-  opacity: 0;
-  -webkit-transform: translate(30px, 0);
-  transform: translate(30px, 0);
-}
-.slide-left-leave-active, .slide-right-enter {
-  opacity: 0;
-  -webkit-transform: translate(-30px, 0);
-  transform: translate(-30px, 0);
-}
-</style>
+<style src="./App.css" scoped></style>
